@@ -9,10 +9,10 @@ fun general() = commands("General") {
         description = "Make the bot say something."
         execute(EveryArg) {
             val output = args.first
-            respond(output)
             if (message.getGuildOrNull() != null) {
                 message.delete()
             }
+            respond(output)
         }
     }
 }

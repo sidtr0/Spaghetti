@@ -1,5 +1,6 @@
 package me.jakejmattson.bot.conversations
 
+import dev.kord.common.entity.Permission
 import me.jakejmattson.discordkt.api.arguments.*
 import me.jakejmattson.discordkt.api.dsl.*
 import me.jakejmattson.discordkt.api.conversations.conversation
@@ -13,11 +14,15 @@ fun configurationConversation() = conversation("exit") {
 }
 
 fun configurationCommands() = commands("Configuration") {
-    command("configure") {
+    guildCommand("Configure") {
         description = "Start a conversation in the chat to configure the bot for your server."
         execute {
-            val result = configurationConversation().startPublicly(discord, author, channel)
-            println(result)
+            if (message.getAuthorAsMember()?.getPermissions()?.contains(Permission.Administrator) == true) {
+                val result = configurationConversation().startPublicly(discord, author, channel)
+                println(result)
+            } else {
+                respond("Sorry, you do not have permission to run this command.")
+            }
         }
     }
 }

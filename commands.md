@@ -8,18 +8,17 @@
 ## Configuration
 | Commands  | Arguments | Description                                                            |
 | --------- | --------- | ---------------------------------------------------------------------- |
-| configure |           | Start a conversation in the chat to configure the bot for your server. |
-
-## Conversation
-| Commands | Arguments | Description                                 |
-| -------- | --------- | ------------------------------------------- |
-| Private  |           | Starts a conversation in a private channel. |
-| Public   |           | Start a conversation in a public channel.   |
+| Configure |           | Start a conversation in the chat to configure the bot for your server. |
 
 ## General
 | Commands | Arguments | Description                 |
 | -------- | --------- | --------------------------- |
 | Say      | Text      | Make the bot say something. |
+
+## Suggestions
+| Commands | Arguments | Description                                                                                                                                                         |
+| -------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Suggest  | Text      | Make a suggestion for the server. The suggestion will be sent to the staff of this server for review and if approved, it will be put up in a public voting channel. |
 
 ## Utility
 | Commands | Arguments | Description          |
