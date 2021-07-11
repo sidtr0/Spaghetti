@@ -1,4 +1,4 @@
-package me.dracthedino.bot.commands
+package me.jakejmattson.bot.commands
 
 import me.jakejmattson.discordkt.api.arguments.EveryArg
 import me.jakejmattson.discordkt.api.dsl.commands

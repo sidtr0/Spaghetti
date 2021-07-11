@@ -8,10 +8,11 @@ plugins {
 repositories {
     mavenCentral()
     jcenter()
+    maven("https://oss.sonatype.org/content/repositories/snapshots")
 }
 
 dependencies {
-    implementation("me.jakejmattson:DiscordKt:0.21.3")
+    implementation("me.jakejmattson:DiscordKt:0.22.0-SNAPSHOT")
 }
 
 tasks.compileKotlin {

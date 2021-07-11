@@ -1,4 +1,4 @@
-package me.dracthedino.bot
+package me.jakejmattson.bot
 
 import dev.kord.common.annotation.KordPreview
 import dev.kord.gateway.Intents
