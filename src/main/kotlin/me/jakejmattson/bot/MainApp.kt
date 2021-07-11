@@ -1,22 +1,26 @@
-package me.jakejmattson.bot
+package me.dracthedino.bot
 
-import com.gitlab.kordlib.gateway.Intent
-import com.gitlab.kordlib.kordx.emoji.Emojis
+import dev.kord.common.annotation.KordPreview
+import dev.kord.gateway.Intents
+import dev.kord.common.kColor
 import kotlinx.coroutines.flow.toList
 import me.jakejmattson.discordkt.api.dsl.bot
 import me.jakejmattson.discordkt.api.extensions.*
 import java.awt.Color
 
+@KordPreview
 suspend fun main(args: Array<String>) {
     //Get the bot token from the command line (or your preferred way).
     val token = args.firstOrNull()
+    val prefix = "s!"
     require(token != null) { "Expected the bot token as a command line argument!" }
 
     //Start the bot and set configuration options.
+
     bot(token) {
         //Dynamically determine the prefix used for commands.
         prefix {
-            "+"
+            prefix
         }
 
         //Simple configuration options
@@ -34,16 +38,19 @@ suspend fun main(args: Array<String>) {
             recommendCommands = true
 
             //An emoji added when a command is invoked (use 'null' to disable this).
-            commandReaction = Emojis.eyes
+            commandReaction = null
 
             //A color constant for your bot - typically used in embeds.
-            theme = Color(0x00BFFF)
+            theme = Color.ORANGE
+
+            //Configure the Discord Gateway intents for your bot.
+            intents = Intents.nonPrivileged.values
         }
 
         //An embed sent whenever someone solely mentions your bot ('@Bot').
         mentionEmbed {
-            title = "Hello World"
-            color = it.discord.configuration.theme
+            title = "Spaghetti"
+            color = it.discord.configuration.theme!!.kColor
 
             author {
                 with(it.author) {
@@ -54,12 +61,12 @@ suspend fun main(args: Array<String>) {
             }
 
             thumbnail {
-                url = it.discord.api.getSelf().avatar.url
+                url = it.discord.kord.getSelf().avatar.url
             }
 
             footer {
                 val versions = it.discord.versions
-                text = "${versions.library} - ${versions.kord} - ${versions.kotlin}"
+                text = "DiscordKt: ${versions.library} - Kord: ${versions.kord} - Kotlin: ${versions.kotlin}"
             }
 
             addField("Prefix", it.prefix())
@@ -72,17 +79,12 @@ suspend fun main(args: Array<String>) {
 
         //The Discord presence shown on your bot.
         presence {
-            playing("DiscordKt Example")
-        }
-
-        //Configure the Discord Gateway intents for your bot.
-        intents {
-            +Intent.GuildMessages
+            playing("$prefix")
         }
 
         //This is run once the bot has finished setup and logged in.
         onStart {
-            val guilds = api.guilds.toList().joinToString { it.name }
+            val guilds = kord.guilds.toList().joinToString { it.name }
             println("Guilds: $guilds")
         }
     }

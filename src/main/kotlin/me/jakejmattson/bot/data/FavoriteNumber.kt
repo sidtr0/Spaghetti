@@ -1,4 +1,4 @@
-package me.jakejmattson.bot.data
+package me.dracthedino.bot.data
 
 import me.jakejmattson.discordkt.api.dsl.Data
 
