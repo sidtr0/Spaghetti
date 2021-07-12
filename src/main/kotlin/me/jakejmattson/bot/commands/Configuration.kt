@@ -13,11 +13,7 @@ fun configurationCommands() = commands("Configuration") {
         requiredPermission = Permission.Administrator
         description = "Start a conversation in the chat to configure the bot for your server."
         execute {
-//            if (message.getAuthorAsMember()?.getPermissions()?.contains(Permission.Administrator) == true) {
-                val result = ConfigurationConversation(Configuration()).configurationConversation(guild).startPublicly(discord, author, channel)
-//            } else {
-//                respond("Sorry, you do not have permission to run this command.")
-//            }
+                ConfigurationConversation(Configuration()).configurationConversation(guild).startPublicly(discord, author, channel)
         }
     }
     guildCommand("ShowConfiguration") {

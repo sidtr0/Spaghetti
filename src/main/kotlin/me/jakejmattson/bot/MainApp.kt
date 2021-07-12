@@ -15,7 +15,7 @@ suspend fun main(args: Array<String>) {
     val token = args.firstOrNull()
     require(token != null) { "Expected the bot token as a command line argument!" }
 
-    val prefix = "s!"
+    val defaultPrefix = "s!"
 
     //Start the bot and set configuration options.
 
@@ -23,7 +23,7 @@ suspend fun main(args: Array<String>) {
         //Dynamically determine the prefix used for commands.
         prefix {
             val guildConfiguration = discord.getInjectionObjects(Configuration::class).guildConfigurations
-            guild?.let { guildConfiguration[it.id.value]?.serverPrefix } ?: prefix
+            guild?.let { guildConfiguration[it.id.value]?.serverPrefix } ?: defaultPrefix
         }
 
         //Simple configuration options
@@ -82,7 +82,7 @@ suspend fun main(args: Array<String>) {
 
         //The Discord presence shown on your bot.
         presence {
-            playing(prefix)
+            playing(defaultPrefix)
         }
 
         //This is run once the bot has finished setup and logged in.
