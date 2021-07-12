@@ -2,6 +2,7 @@ package me.jakejmattson.bot.data
 
 import dev.kord.common.entity.Snowflake
 import dev.kord.core.entity.Guild
+import dev.kord.core.entity.Member
 import dev.kord.core.entity.channel.TextChannel
 import me.jakejmattson.discordkt.api.dsl.Data
 
@@ -26,6 +27,15 @@ data class Configuration(
         guildConfigurations[guild.id.value] = newGuildConfiguration
         save()
     }
+    suspend fun addSuggestion(
+        author: Member,
+        randomLong: Long,
+        suggestion: String,
+    ) {
+        val authorId = author.id.value
+        val salt = (authorId.toString() + randomLong.toString()).toLong()
+        guildConfigurations[author.getGuild().id.value]?.suggestions?.set(salt, suggestion)
+    }
 }
 
 data class GuildConfiguration(
@@ -33,5 +43,5 @@ data class GuildConfiguration(
     var serverPrefix: String = "sp!",
     var staffReviewChannel: Snowflake,
     var publicVotingChannel: Snowflake,
-    val suggestions: MutableMap<Int, String> = mutableMapOf()
+    val suggestions: MutableMap<Long, String> = mutableMapOf()
 )

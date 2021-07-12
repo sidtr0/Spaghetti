@@ -13,14 +13,19 @@ fun configurationCommands() = commands("Configuration") {
         requiredPermission = Permission.Administrator
         description = "Start a conversation in the chat to configure the bot for your server."
         execute {
-                ConfigurationConversation(Configuration()).configurationConversation(guild).startPublicly(discord, author, channel)
+                ConfigurationConversation(Configuration())
+                    .configurationConversation(guild)
+                    .startPublicly(discord, author, channel)
         }
     }
     guildCommand("ShowConfiguration") {
+        requiredPermission = Permission.Administrator
         description = "Show the server's current configuration."
         execute {
             val prefix = "s!"
-            val guildConfiguration = discord.getInjectionObjects(Configuration::class).guildConfigurations
+            val guildConfiguration = discord
+                .getInjectionObjects(Configuration::class)
+                .guildConfigurations
             respond {
                 title = "Guild Configuration for Guild: ${guild.name}"
                 color = Color.ORANGE.kColor
