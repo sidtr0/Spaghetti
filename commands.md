@@ -6,9 +6,10 @@
 | [Argument]  | Argument is not required.      |
 
 ## Configuration
-| Commands  | Arguments | Description                                                            |
-| --------- | --------- | ---------------------------------------------------------------------- |
-| Configure |           | Start a conversation in the chat to configure the bot for your server. |
+| Commands          | Arguments | Description                                                            |
+| ----------------- | --------- | ---------------------------------------------------------------------- |
+| Configure         |           | Start a conversation in the chat to configure the bot for your server. |
+| ShowConfiguration |           | Show the server's current configuration.                               |
 
 ## General
 | Commands | Arguments | Description                 |

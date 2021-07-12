@@ -13,7 +13,7 @@ class ConfigurationConversation(private val configuration: Configuration) {
         val staffReviewChannel = promptMessage(ChannelArg, "In which channel should all suggestions first be forwarded to for staff review? Please make sure this is not a public channel!")
         val publicVotingChannel = promptMessage(ChannelArg, "After review, which channel should the suggestions go to for public voting?")
 
-        respond("Server configured. Server's prefix is $serverPrefix and staff review channel is #${staffReviewChannel.name}. Suggestions will be sent to #${publicVotingChannel.name}.\nInvoke this command again for making changes.")
+        respond("Server configured. Server's prefix is `$serverPrefix` and staff review channel is <#${staffReviewChannel.id.value}>. Suggestions will be sent to <#${publicVotingChannel.id.value}>.\nInvoke this command again for making changes.")
         configuration.setup(guild, serverPrefix, staffReviewChannel, publicVotingChannel)
     }
 }
