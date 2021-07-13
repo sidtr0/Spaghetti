@@ -33,7 +33,7 @@ data class Configuration(
         suggestion: String,
     ) {
         val authorId = author.id.value
-        val salt = (authorId.toString() + randomLong.toString()).toLong()
+        val salt = authorId + randomLong
         guildConfigurations[author.getGuild().id.value]?.suggestions?.set(salt, suggestion)
     }
 }

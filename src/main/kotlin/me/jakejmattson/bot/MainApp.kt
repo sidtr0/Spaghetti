@@ -28,26 +28,10 @@ suspend fun main(args: Array<String>) {
 
         //Simple configuration options
         configure {
-            //Allow a mention to be used in front of commands ('@Bot help`).
-            allowMentionPrefix = true
-
-            //Whether or not to generate documentation for registered commands.
-            generateCommandDocs = true
-
-            //Whether or not to show registered entity information on startup.
-            showStartupLog = true
-
-            //Whether or not to recommend commands when an invalid one is invoked.
-            recommendCommands = true
-
             //An emoji added when a command is invoked (use 'null' to disable this).
             commandReaction = null
-
             //A color constant for your bot - typically used in embeds.
             theme = Color.ORANGE
-
-            //Configure the Discord Gateway intents for your bot.
-            intents = Intents.nonPrivileged.values
         }
 
         //An embed sent whenever someone solely mentions your bot ('@Bot').

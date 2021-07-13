@@ -6,10 +6,12 @@
 | [Argument]  | Argument is not required.      |
 
 ## Configuration
-| Commands          | Arguments | Description                                                            |
-| ----------------- | --------- | ---------------------------------------------------------------------- |
-| Configure         |           | Start a conversation in the chat to configure the bot for your server. |
-| ShowConfiguration |           | Show the server's current configuration.                               |
+| Commands              | Arguments | Description                                                            |
+| --------------------- | --------- | ---------------------------------------------------------------------- |
+| Configure             |           | Start a conversation in the chat to configure the bot for your server. |
+| SetPrefix             | Text      | Change server prefix after initial configuration.                      |
+| ShowConfiguration     |           | Show the server's current configuration.                               |
+| setStaffReviewChannel | Channel   | Change staff review channel after initial configuration.               |
 
 ## General
 | Commands | Arguments | Description                 |
