@@ -7,7 +7,7 @@ import me.jakejmattson.discordkt.api.dsl.commands
 import me.jakejmattson.discordkt.api.extensions.toSnowflake
 import kotlin.random.Random
 
-
+@Suppress("unused")
 fun suggestions(configuration: Configuration) = commands("Suggestions") {
     guildCommand("Suggest") {
         description = "Make a suggestion for the server. The suggestion will be sent to the staff of this server for review and if approved, it will be put up in a public voting channel."

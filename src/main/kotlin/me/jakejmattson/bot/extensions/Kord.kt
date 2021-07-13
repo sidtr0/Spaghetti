@@ -14,6 +14,7 @@ var Command.requiredPermission: Permission
         commandPermissions[this] = value
     }
 
+@Suppress("unused")
 fun permissionPrecondition() = precondition {
     val requiredPermission = command?.requiredPermission ?: defaultPermission
     if (this.author.asMember(guild!!.id).getPermissions().contains(requiredPermission)) return@precondition

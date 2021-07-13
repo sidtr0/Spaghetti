@@ -2,8 +2,8 @@ package me.jakejmattson.bot.commands
 
 import me.jakejmattson.discordkt.api.arguments.EveryArg
 import me.jakejmattson.discordkt.api.dsl.commands
-import java.awt.Color
 
+@Suppress("unused")
 fun general() = commands("General") {
     command("Say") {
         description = "Make the bot say something."
